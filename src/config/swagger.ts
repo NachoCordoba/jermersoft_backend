@@ -12,7 +12,7 @@ export default {
           }
         },
         servers: [{
-          url: `${process.env.LOCAL_URI}:${process.env.PORT}/`,
+          url: `http://localhost:3000/`,
           
         }],
       },

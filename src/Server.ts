@@ -51,7 +51,10 @@ export default class Server {
     }
 
     private startMongo(mongoUri: string){
-        mongoose.connect(mongoUri, { },()=>{
+        mongoose.connect(mongoUri, { },(err)=>{
+            if(err)
+                return console.error('Error en la conexion con la base de datos.');
+
             console.log('Conectado correctamente a la bases de datos.');
         });
     }

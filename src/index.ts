@@ -19,11 +19,3 @@ const specs = swaggerJsdoc(swaggerOptions);
 instance.configureSwagger({ specs })
 instance.startServer();
 
-// TO DO
-/**
- * - Más Abstraccion
- * - Más Modularizacion
- * - Manejo de Errores, con codigos correctos.
- * - Mejorar Configuracion del proyecto
- * - Mejorar Documentacion.
- */
