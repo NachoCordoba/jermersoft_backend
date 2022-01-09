@@ -9,6 +9,8 @@ import UserModule from './modules/user/user.module';
 import { SwaggerUiOptions } from 'swagger-ui-express'
 import swaggerUi from 'swagger-ui-express';
 
+import path from 'path';
+
 export default class Server {
     private app: Express = express();
     private port: Number;
@@ -42,12 +44,17 @@ export default class Server {
 
         this.app.use(urlencoded({ extended: false }));
         this.app.use(json());
+        this.configurePublicPath();
     }
 
     public startServer(){
         this.app.listen(this.port, ()=>{
             console.log('Esuchando el puerto: ', this.port);
         });
+    }
+
+    private configurePublicPath(){
+        this.app.use('/', express.static(path.resolve(__dirname, 'public')));
     }
 
     private startMongo(mongoUri: string){
